@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import Link from "next/link";
-import { Menu } from "antd";
+import { Input, Menu } from "antd";
 
 const AppLayout = ({ children }) => {
   return (
@@ -12,16 +12,23 @@ const AppLayout = ({ children }) => {
             <a> 노드버드 </a>
           </Link>
         </Menu.Item>
+        
         <Menu.Item>
           <Link href="/profile">
             <a> 프로필 </a>
           </Link>
         </Menu.Item>
+
+        <Menu.Item>
+          <Input.Search />
+        </Menu.Item>
+
         <Menu.Item>
           <Link href="/signup">
             <a> 회원가입 </a>
           </Link>
         </Menu.Item>
+
       </Menu>
       {children}
     </div>
