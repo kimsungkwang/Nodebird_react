@@ -29,7 +29,7 @@ const AppLayout = ({ children }) => {
         </Menu.Item>
 
         <Menu.Item>
-          <SearchInput enterButton/>
+          <SearchInput enterButton />
         </Menu.Item>
 
         <Menu.Item>
@@ -40,7 +40,7 @@ const AppLayout = ({ children }) => {
       </Menu>
       <Row gutter={8}>
         <Col xs={24} md={6}>
-          {isLoggedIn ? <UserProfile setIsLoggedIn={setIsLoggedIn} /> : <LoginForm />}
+          {isLoggedIn ? <UserProfile setIsLoggedIn={setIsLoggedIn} /> : <LoginForm setIsLoggedIn={setIsLoggedIn} />}
         </Col>
         <Col xs={24} md={12}>
           {children}

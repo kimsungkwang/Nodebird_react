@@ -5,7 +5,7 @@ const UserProfile = ({ setIsLoggedIn }) => {
   const onLogOut = useCallback(() => {
     setIsLoggedIn(false);
   }, []);
-  
+
   return (
     <Card
       actions={[
@@ -19,7 +19,7 @@ const UserProfile = ({ setIsLoggedIn }) => {
           팔로워 <br />0
         </div>,
       ]}>
-      <Card.Meta avatar={<Avatar>ZC</Avatar>} title="sungoang" />
+      <Card.Meta avatar={<Avatar>ZC</Avatar>} title="김성광" />
       <Button onClick={onLogOut}>로그아웃</Button>
     </Card>
   );
