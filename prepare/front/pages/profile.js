@@ -15,7 +15,7 @@ const Profile = () => {
         <title>내 프로필 | Nodebird</title>
       </Head>
       <AppLayout>
-        <NicknameEditForm />
+        <NickNameEditForm />
         <FollowList herder="팔로잉 목록" data={followingList} />
         <FollowList herder="팔로워 목록" data={followerList} />
       </AppLayout>
