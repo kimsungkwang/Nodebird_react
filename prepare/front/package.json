@@ -15,7 +15,8 @@
     "prop-types": "^15.8.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
-    "style-components": "^0.1.0"
+    "style-components": "^0.1.0",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
     "eslint": "^8.25.0",
