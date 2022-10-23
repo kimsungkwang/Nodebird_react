@@ -13,6 +13,7 @@ const SearchInput = styled(Input.Search)`
 `;
 
 const AppLayout = ({ children }) => {
+  // 유저를 받아와서 유저 자체를 구조분해 한다 .
   const isLoggedIn = useSelector((state) => state.user.isLoggedIn);
 
   return (
