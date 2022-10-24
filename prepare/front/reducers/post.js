@@ -2,12 +2,12 @@ export const initialState = {
   mainPosts: [
     {
       id: 1,
-      Usdr: {
+      User: {
         id: 1,
-        nickname: "홍길동",
+        nickname: "김성광",
       },
       content: "첫 번째 게시글 #해시태그 #익스프레스",
-      Image: [{}],
+      Images: [{}],
       Comment: [
         {
           User: {
