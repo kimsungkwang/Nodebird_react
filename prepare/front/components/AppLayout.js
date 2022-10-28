@@ -58,7 +58,7 @@ const AppLayout = ({ children }) => {
   );
 };
 
-AppLayout.prototype = {
+AppLayout.propTypes = {
   children: PropTypes.node.isRequired,
 };
 
