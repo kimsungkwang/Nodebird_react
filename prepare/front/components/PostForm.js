@@ -1,23 +1,35 @@
-import React, { useCallback, useRef, useState } from "react";
+import React, { useCallback, useState, useEffect, useRef } from "react";
 import { Form, Input, Button } from "antd";
-import { useDispatch, useSelector } from "react-redux";
-import { addPost } from "../reducers/post";
+import { useSelector, useDispatch } from "react-redux";
+
+import { ADD_POST_REQUEST } from "../reducers/post";
 
 const PostForm = () => {
-  const { imagePaths } = useSelector((state) => state.post);
   const dispatch = useDispatch();
-  const imageInput = useRef();
   const [text, setText] = useState("");
-  const onChangeText = useCallback((e) => {
-    setText(e.target.value);
-  }, []);
-  const onSubmitForm = useCallback(() => {
-    dispatch(addPost);
-    setText(""); // 짹짹 버튼을 누르면 초기화
-  }, []);
+  const { imagePaths, addPostLoading, addPostDone } = useSelector((state) => state.post);
+
+  const imageInput = useRef();
   const onClickImageUpload = useCallback(() => {
     imageInput.current.click();
   }, [imageInput.current]);
+
+  useEffect(() => {
+    if (addPostDone) {
+      setText("");
+    }
+  }, [addPostDone]);
+
+  const onSubmitForm = useCallback(() => {
+    dispatch({
+      type: ADD_POST_REQUEST,
+      data: text,
+    });
+  }, [text]);
+
+  const onChangeText = useCallback((e) => {
+    setText(e.target.value);
+  }, []);
 
   return (
     <Form style={{ margin: "10px 0 20px" }} encType="multipart/form-data" onFinish={onSubmitForm}>
@@ -25,7 +37,7 @@ const PostForm = () => {
       <div>
         <input type="file" multiple hidden ref={imageInput} />
         <Button onClick={onClickImageUpload}>이미지 업로드</Button>
-        <Button type="primary" style={{ float: "right" }} htmlType="submit">
+        <Button type="primary" style={{ float: "right" }} htmlType="submit" loading={addPostLoading}>
           짹짹
         </Button>
       </div>
