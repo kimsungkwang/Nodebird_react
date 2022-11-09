@@ -1,7 +1,7 @@
 // 회원 정보
 
 module.exports = (sequelize, DataTypes) => {
-  const User = sequelize.defile(
+  const User = sequelize.define(
     "User",
     {
       // 사용자 정보

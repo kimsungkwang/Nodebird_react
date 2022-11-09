@@ -1,7 +1,7 @@
 // 게시글
 
 module.exports = (sequelize, DataTypes) => {
-  const Image = sequelize.defile(
+  const Image = sequelize.define(
     "Image",
     {
       src: {

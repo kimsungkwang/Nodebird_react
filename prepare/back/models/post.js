@@ -1,7 +1,7 @@
 // 게시글
 
 module.exports = (sequelize, DataTypes) => {
-  const Post = sequelize.defile(
+  const Post = sequelize.define(
     "Post",
     {
       content: {
@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
   );
   Post.associate = (db) => {
     db.Post.belongsTo(db.User);
-    db.Post.belongsToMany(db.Hashtag); // 다대다 관계
+    db.Post.belongsToMany(db.Hashtag, { through: "PostHashtag" }); // 다대다 관계
     db.Post.hasMany(db.Comment);
     db.Post.hasMany(db.Image);
     db.Post.belongsTo(db.Post, { as: "Retweet" });

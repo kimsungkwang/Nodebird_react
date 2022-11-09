@@ -1,7 +1,7 @@
 // 해시태그
 
 module.exports = (sequelize, DataTypes) => {
-  const Hashtag = sequelize.defile(
+  const Hashtag = sequelize.define(
     "Hashtag",
     {
       name: {
@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   );
   Hashtag.associate = (db) => {
-    db.Hashtag.belongsToMany(db.Post); // 다대다 관계
+    db.Hashtag.belongsToMany(db.Post, { through: "PostHashtag" }); // 다대다 관계
   };
   return Hashtag;
 };

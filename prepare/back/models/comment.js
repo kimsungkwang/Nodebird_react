@@ -1,7 +1,8 @@
 // 댓글 
 
 module.exports = (sequelize, DataTypes) => {
-    const Comment = sequelize.defile(
+    const Comment = sequelize.define(
+      "Comment",
       {
         content: {
           type: DataTypes.TEXT,
